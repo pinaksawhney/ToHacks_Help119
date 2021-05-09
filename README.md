@@ -1,2 +1,2 @@
 # ToHacks_Help119
-app made for TO hacks 2021
+Android app for racial inclusivity developed as a part of TOhacks 2021
