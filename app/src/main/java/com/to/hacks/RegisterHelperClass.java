@@ -1,18 +1,16 @@
-package com.to.hacks.model;
+package com.to.hacks;
 
-public class User {
+public class RegisterHelperClass {
 
-    private int id;
-    private String name;
-    private String email;
-    private String password;
+    String name,email,password;
 
-    public int getId() {
-        return id;
-    }
+    public RegisterHelperClass() {}
 
-    public void setId(int id) {
-        this.id = id;
+
+    public RegisterHelperClass(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public String getName() {

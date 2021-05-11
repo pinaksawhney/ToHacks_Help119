@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "72726444696",
+    "project_id": "chatapp-d17e0",
+    "storage_bucket": "chatapp-d17e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72726444696:android:f51604838e10a04c406eed",
+        "android_client_info": {
+          "package_name": "com.to.hacks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72726444696-lojk0mo3trhsaq8mnr3hrcl75m1546g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl1EUXiimglsHpQAPqs3WJb1xVVTdp76w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72726444696-lojk0mo3trhsaq8mnr3hrcl75m1546g5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
