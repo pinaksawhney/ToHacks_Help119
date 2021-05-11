@@ -10,4 +10,6 @@ Android app for racial inclusivity developed as a part of TOhacks 2021
 
 ### UI
 [UI link](https://www.figma.com/file/NbJQHRmloZHKGspwieiQER/Untitled?node-id=0%3A1)
+### Download app
+[Download link](https://github.com/pinaksawhney/ToHacks_Help119/raw/frontend/app/release/app-release.apk)
 
