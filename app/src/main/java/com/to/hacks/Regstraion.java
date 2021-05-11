@@ -96,6 +96,50 @@ public class Regstraion extends AppCompatActivity {
         });
     }
 
+    public void validate()
+    {
+        String email = remail.getText().toString();
+        String encrypted = "";
+        try {
+            encrypted = AESUtils.encrypt(email);
+            Log.d("TEST", "encrypted:" + encrypted);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        reff= FirebaseDatabase.getInstance().getReference().child("User").child(encrypted);
+        reff.addValueEventListener(new ValueEventListener() {
+            @SuppressLint({"SetTextI18n", "LongLogTag"})
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+
+                int x= (int) snapshot.getChildrenCount();
+                if(x>0)
+                {
+                    // String givemoney = Objects.requireNonNull(snapshot.child("give").getValue()).toString();
+                    progressDialog.dismiss();
+                    remail.setError("Already Registered");
+
+
+                }
+                else
+                {
+                    updateuserdata();
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 
     //it will update user data to Firebase
     public void updateuserdata()
@@ -118,51 +162,14 @@ public class Regstraion extends AppCompatActivity {
         RegisterHelperClass registerHelperClass = new RegisterHelperClass(name,email,psw);
         reference.child(encrypted).setValue(registerHelperClass);
         progressDialog.dismiss();
-        Intent i = new Intent(Regstraion.this,Login.class);
+        Intent i = new Intent(Regstraion.this,MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+        finish();
 
     }
 
-    public void validate()
-    {
-        String email = remail.getText().toString();
-        String encrypted = "";
-        try {
-            encrypted = AESUtils.encrypt(email);
-            Log.d("TEST", "encrypted:" + encrypted);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        reff= FirebaseDatabase.getInstance().getReference().child("User").child(encrypted);
-        reff.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("SetTextI18n")
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-
-                int x= (int) snapshot.getChildrenCount();
-                if(x>0)
-                {
-                   // String givemoney = Objects.requireNonNull(snapshot.child("give").getValue()).toString();
-                    progressDialog.dismiss();
-                    Toast.makeText(Regstraion.this, "You Already Registered", Toast.LENGTH_SHORT).show();
-
-
-                }
-                else
-                {
-                    updateuserdata();
-                }
-                
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 }
