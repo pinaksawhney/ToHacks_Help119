@@ -149,9 +149,14 @@ public class Regstraion extends AppCompatActivity {
         String psw = rpassword.getText().toString();
 
         String encrypted = "";
+        String ename = "";
+        String eemail= "";
+        String epsw = "";
         try {
             encrypted = AESUtils.encrypt(email);
-            Log.d("TEST", "encrypted:" + encrypted);
+            ename = AESUtils.encrypt(name);
+            eemail = AESUtils.encrypt(email);
+            epsw = AESUtils.encrypt(psw);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -159,9 +164,18 @@ public class Regstraion extends AppCompatActivity {
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference().child("User");
 
-        RegisterHelperClass registerHelperClass = new RegisterHelperClass(name,email,psw);
+        RegisterHelperClass registerHelperClass = new RegisterHelperClass(ename,eemail,epsw);
         reference.child(encrypted).setValue(registerHelperClass);
         progressDialog.dismiss();
+
+        SharedPreferences.Editor editor = getSharedPreferences("DATA", MODE_PRIVATE).edit();
+        editor.putString("name", name);
+        editor.putString("email", email);
+        editor.putString("evalue", encrypted);
+        editor.putString("R", "1");
+        editor.apply();
+
+
         Intent i = new Intent(Regstraion.this,MainActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

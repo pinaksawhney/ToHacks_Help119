@@ -9,19 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeOne">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Regstraion"
-            android:screenOrientation="portrait"
-            android:noHistory="true"/>
-        <activity
-            android:name=".Login"
-            android:noHistory="true"
+        <activity android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Regstraion"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

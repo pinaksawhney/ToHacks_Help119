@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -98,6 +99,7 @@ public class Login extends AppCompatActivity {
         }
 
         reff= FirebaseDatabase.getInstance().getReference().child("User").child(encrypted);
+        String finalEncrypted = encrypted;
         reff.addValueEventListener(new ValueEventListener() {
             @SuppressLint({"SetTextI18n", "LongLogTag"})
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -111,14 +113,30 @@ public class Login extends AppCompatActivity {
                 {
                     String email2 = Objects.requireNonNull(snapshot.child("email").getValue()).toString();
                     String password2 = Objects.requireNonNull(snapshot.child("password").getValue()).toString();
-                    String verify=email2+password2;
+
+                    String deemail = "";
+                    String depsw = "";
+                    try {
+                        deemail = AESUtils.decrypt(email2);
+                        depsw = AESUtils.decrypt(password2);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    String verify=deemail+depsw;
                     if(verify.equals(email+psw))
                     {
+                        SharedPreferences.Editor editor = getSharedPreferences("DATA", MODE_PRIVATE).edit();
+                        editor.putString("evalue", finalEncrypted);
+                        editor.putString("R", "1");
+                        editor.apply();
+                        progressDialog.dismiss();
                         Intent i = new Intent(Login.this,MainActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
+
                     }
                     else
                     {
