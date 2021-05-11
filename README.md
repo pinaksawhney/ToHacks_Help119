@@ -7,3 +7,7 @@ Android app for racial inclusivity developed as a part of TOhacks 2021
 
 ### Workflow
 [Workflow link](https://www.figma.com/file/wglZJtVDGXbeJkuSXDUP0F/workflow-of-entry?node-id=0%3A1) 
+
+### UI
+[UI link](https://www.figma.com/file/NbJQHRmloZHKGspwieiQER/Untitled?node-id=0%3A1)
+
