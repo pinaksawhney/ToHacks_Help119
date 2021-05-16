@@ -14,6 +14,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
@@ -26,18 +29,16 @@ import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
-    AppCompatTextView create_account;
-
-    TextInputEditText lemail,lpassword;
-
-    AppCompatButton login;
+    TextView create_account;
+    EditText lemail,lpassword;
+    Button login;
     DatabaseReference reff;
     ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login2);
         progressDialog = new ProgressDialog(this);
         create_account = findViewById(R.id.create);
         lemail=findViewById(R.id.lemail);

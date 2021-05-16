@@ -15,6 +15,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -28,9 +31,9 @@ import java.util.Objects;
 
 public class Regstraion extends AppCompatActivity {
 
-    AppCompatTextView alreadylogin;
-    TextInputEditText rname,remail,rpassword,rconfirmpsw;
-    AppCompatButton register;
+    TextView alreadylogin;
+    EditText rname,remail,rpassword,rconfirmpsw;
+    Button register;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     DatabaseReference reff;
@@ -39,7 +42,7 @@ public class Regstraion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regstraion);
+        setContentView(R.layout.activity_registration2);
 
         progressDialog = new ProgressDialog(this);
 

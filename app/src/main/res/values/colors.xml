@@ -15,4 +15,6 @@
     <color name="colorBackground">#413e4f</color>
     <color name="colorText">#FFFFFF</color>
     <color name="colorTextHint">#51d8c7</color>
+    <color name="dark_blue">#2a6ddf</color>
+    <color name="light_blue">#3F7BE3</color>
 </resources>
