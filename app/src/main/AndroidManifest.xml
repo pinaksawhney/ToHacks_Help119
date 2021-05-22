@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeOne">
-        <activity android:name=".SplashActivity"
+        <activity android:name=".AccountActivity"></activity>
+        <activity android:name=".AddReportActivity" />
+        <activity android:name=".ExploreActivity" />
+        <activity
+            android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +29,7 @@
         <activity
             android:name=".Login"
             android:noHistory="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

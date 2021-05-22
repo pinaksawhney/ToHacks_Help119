@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">WeOne</string>
+    <string name="tab_text_1">Reports</string>
+    <string name="tab_text_2">Saved</string>
     <string name="text_accounts">All Accounts</string>
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
